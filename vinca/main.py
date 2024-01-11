@@ -625,7 +625,7 @@ def generate_source_version(distro, vinca_conf):
                 continue
         else:
             if not pkg_names or pkg_names[0] in vinca_conf["skip_built_packages"]:
-                continue            
+                continue
         pkg_name = pkg_names[0]
         entry["folder"] = "%s/src/work" % pkg_name
 
@@ -883,7 +883,7 @@ def main():
     generate_bld_colcon_merge()
     generate_bld_catkin_merge()
     generate_activate_hook()
-    
+
     if arguments.trigger_new_versions:
         vinca_conf["trigger_new_versions"] = True
     else:
