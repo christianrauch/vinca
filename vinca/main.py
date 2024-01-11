@@ -447,27 +447,27 @@ def generate_output(pkg_shortname, vinca_conf, distro, version, all_pkgs=None):
         while "REQUIRE_OPENGL" in output["requirements"]["host"]:
             output["requirements"]["host"].remove("REQUIRE_OPENGL")
 
-        output["requirements"]["build"] += [
-            {"sel(linux)": "{{ cdt('mesa-libgl-devel') }}"},
-            {"sel(linux)": "{{ cdt('mesa-dri-drivers') }}"},
-            {"sel(linux)": "{{ cdt('libselinux') }}"},
-            {"sel(linux)": "{{ cdt('libxdamage') }}"},
-            {"sel(linux)": "{{ cdt('libxxf86vm') }}"},
-            {"sel(linux)": "{{ cdt('libxfixes') }}"},
-            {"sel(linux)": "{{ cdt('libxext') }}"},
-            {"sel(linux)": "{{ cdt('libxau') }}"},
-            {"sel(linux)": "{{ cdt('libxcb') }}"},
-        ]
-        output["requirements"]["host"] += [
-            {"sel(unix)": "xorg-libx11"},
-            {"sel(unix)": "xorg-libxext"},
-            # 'xorg-libxfixes  [unix]',
-        ]
-        output["requirements"]["run"] += [
-            {"sel(unix)": "xorg-libx11"},
-            {"sel(unix)": "xorg-libxext"},
-            # 'xorg-libxfixes  [unix]',
-        ]
+        # output["requirements"]["build"] += [
+        #     {"sel(linux)": "{{ cdt('mesa-libgl-devel') }}"},
+        #     {"sel(linux)": "{{ cdt('mesa-dri-drivers') }}"},
+        #     {"sel(linux)": "{{ cdt('libselinux') }}"},
+        #     {"sel(linux)": "{{ cdt('libxdamage') }}"},
+        #     {"sel(linux)": "{{ cdt('libxxf86vm') }}"},
+        #     {"sel(linux)": "{{ cdt('libxfixes') }}"},
+        #     {"sel(linux)": "{{ cdt('libxext') }}"},
+        #     {"sel(linux)": "{{ cdt('libxau') }}"},
+        #     {"sel(linux)": "{{ cdt('libxcb') }}"},
+        # ]
+        # output["requirements"]["host"] += [
+        #     {"sel(unix)": "xorg-libx11"},
+        #     {"sel(unix)": "xorg-libxext"},
+        #     # 'xorg-libxfixes  [unix]',
+        # ]
+        # output["requirements"]["run"] += [
+        #     {"sel(unix)": "xorg-libx11"},
+        #     {"sel(unix)": "xorg-libxext"},
+        #     # 'xorg-libxfixes  [unix]',
+        # ]
 
     # fix up GL support for Unix
     if (
@@ -480,12 +480,12 @@ def generate_output(pkg_shortname, vinca_conf, distro, version, all_pkgs=None):
         while "REQUIRE_GL" in output["requirements"]["host"]:
             output["requirements"]["host"].remove("REQUIRE_GL")
 
-        output["requirements"]["build"] += [
-            {"sel(linux)": "{{ cdt('mesa-libgl-devel') }}"},
-            {"sel(linux)": "{{ cdt('mesa-dri-drivers') }}"},
-            {"sel(linux)": "{{ cdt('libselinux') }}"},
-            {"sel(linux)": "{{ cdt('libxxf86vm') }}"},
-        ]
+        # output["requirements"]["build"] += [
+        #     {"sel(linux)": "{{ cdt('mesa-libgl-devel') }}"},
+        #     {"sel(linux)": "{{ cdt('mesa-dri-drivers') }}"},
+        #     {"sel(linux)": "{{ cdt('libselinux') }}"},
+        #     {"sel(linux)": "{{ cdt('libxxf86vm') }}"},
+        # ]
 
     # remove duplicates
     for dep_type in ["build", "host", "run"]:
